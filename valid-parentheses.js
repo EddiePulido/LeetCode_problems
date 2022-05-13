@@ -1,20 +1,29 @@
-const isValid = s => {
-    let arr = [];
-    let open = ['[','{','('];
-    let closed = ['}', ')', ']'];
-    let dict = {']':'[', '}':'{', ')':'('};
-
-    for(let i=0;i<s.length;i++){
-        if(open.includes(s[i])){
-            arr.push(s[i]);
-        }else if(closed.includes(s[i])){
-            if(arr.length > 0 && arr[arr.length-1] == dict[s[i]]){
-                arr.pop();
-            }else{
-                return false;
-            }
-        }
-    }
-
-    return arr.length == 0;
+var isValid = function(s) {
+  let para = []
+  
+  const open = ['[','(', '{']
+  const close = [']', ')', '}']
+  
+  let brackets = {
+      '{' : '}',
+      '[' : ']',
+      '(' : ')'
+  }
+  
+  for(let i = 0; i< s.length; i++){
+      let char = s[i]
+      if(open.includes(char)){
+          para.push(char)
+      }
+      
+      if(close.includes(char)){
+          if(brackets[para[para.length-1]] === char){
+              para.pop()
+          }else{
+              return false
+          }
+      }
+  }
+  
+  return para.length === 0
 };
