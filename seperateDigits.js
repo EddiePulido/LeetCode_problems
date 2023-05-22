@@ -1,0 +1,1 @@
+const separateDigits = nums => nums.map(e => [...(e+'')]).flat()
