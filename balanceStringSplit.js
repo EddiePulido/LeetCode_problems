@@ -10,3 +10,11 @@ const balancedStringSplit = s => {
 
   return count
 }
+
+const balancedStringSplit = s => {
+  return [...s].reduce((a,c) => {
+      c === 'R' ? a.r++ : a.l++
+      if(a.r === a.l) a.count++
+      return a
+  }, {r: 0, l: 0, count: 0}).count
+}
