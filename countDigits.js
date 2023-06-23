@@ -1,0 +1,1 @@
+const countDigits = num => [...(num+'')].reduce((a,c) => (num % c ? a : ++a), 0)
