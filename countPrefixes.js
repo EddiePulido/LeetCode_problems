@@ -1,0 +1,1 @@
+const countPrefixes = (words, s) => words.reduce((a,c) => s.startsWith(c) ? ++a : a, 0)
